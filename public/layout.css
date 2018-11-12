@@ -1,0 +1,51 @@
+body{
+    background-color: #ebbef4;
+}
+.messenger{
+    min-height: 20%;
+}
+.mainchat{
+    height: 665px;
+    overflow: auto;
+}
+#listMessenger{
+    height: 560.5px;
+    overflow: auto;
+    
+}
+.user{
+    clear: both;
+    padding: 15px 0 15px 0;
+    
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    
+}
+.active{
+    padding: 15px 0 15px 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    background-color: black;
+
+}
+.me{
+    clear: both;
+    float: right;
+    max-width: 300px;
+    padding: 1px 12px 0px 12px;
+    background-color: #3578e5;
+    border-bottom-left-radius: 1.3em;
+    border-top-left-radius: 1.3em;
+}
+.you{
+    clear: both;
+    float: left ;
+    max-width: 300px;
+    padding: 1px 12px 0px 12px;
+    background-color: #3578e5;
+    border-bottom-right-radius: 1.3em;
+    border-top-right-radius: 1.3em;
+}

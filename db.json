@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "userName": "abcxyz",
+      "name": "Tran Minh Vuong",
+      "pass": "j2team"
+    },
+    {
+      "userName": "nonono",
+      "name": "Phan Van Phu",
+      "pass": "hhhhhhhh"
+    },
+    {
+      "userName": "admin",
+      "name": "admin",
+      "pass": "admin"
+    },
+    {
+      "userName": "abcxyzt",
+      "name": "Tran Minh Vu",
+      "pass": "vuvuong"
+    },
+    {
+      "userName": "minhvuong",
+      "name": "Vương",
+      "pass": "create"
+    }
+  ],
+  "msm": [
+    {
+      "content": "Chao ban!",
+      "sender": "abcxyz",
+      "received": "abcxyzt"
+    },
+    {
+      "content": "Chao ban nhe!",
+      "sender": "abcxyzt",
+      "received": "abcxyz"
+    },
+    {
+      "content": "Toi ten la Vuong, Ban ten la gi?",
+      "sender": "abcxyz",
+      "received": "abcxyzt"
+    },
+    {
+      "content": "Toi ten la Vu. Quang Nam a?",
+      "sender": "abcxyzt",
+      "received": "abcxyz"
+    },
+    {
+      "content": "Uk hehe",
+      "sender": "abcxyz",
+      "received": "abcxyzt"
+    }
+  ]
+}

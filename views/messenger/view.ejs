@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat</title>
+    <link rel="stylesheet" type ="text/css" href="/layout.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"  crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/xuly.js">
+        
+    </script>
+    <script src = "/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+            <div class="row messenger">
+                    <div class="col-sm-3 col-md-3" style="background-color: #4267b2;">
+                        <div>
+                            <h2 style="text-align: center; color: white;">Messenger</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-9" style="background-color: #4267b2;">
+                        <div style="float:left;" >
+                            <h5 id ="useName" data-name = <%= user.userName %> ><%= user.name %></h5>
+                            <h6>hoạt động 5 phút trước</h6>
+                        </div>
+                        <div style="float : right;">
+                            <div id="_id" style="clear: both;float: right;"></div >
+							<div style="clear: both;float: right;"><a id="logout" href="/index">Thoat</a></div> 
+						</div>
+                    </div>
+            </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-3" style="padding: 0;    background-color: #e9ebee;">
+               <div style="margin-top:  5px;padding: 0 15px 0 15px;">
+                    <input type="text" class="form-control" id="txtusr" style="border-radius: 50px;"  >
+                   
+                </div>
+                <div id = 'boxContent' class="mainchat"></div>
+            </div>
+            <div class="col-sm-6 col-md-6  ">
+                    <div id="listMessenger"></div>
+                    <div class="row" style="margin-bottom: 0;">
+                        <div class="col-sm-10 col-md-10"><textarea class="form-control" rows="5" id="txtMessage"></textarea></div>
+                        <div class="col-sm-2 col-md-2"><button type="button" class="btn btn-primary" id="btnSend">Send</button></div>
+                    </div>
+            </div>
+            <div class="col-sm-3 col-md-3" style=" background-color: #e9ebee;">
+                <p>đây là đâu?</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

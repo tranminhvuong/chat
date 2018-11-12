@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chào mừng bạn đến với webchat</title>
+    <link rel="stylesheet" type ="text/css" href="layout.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.min.js"></script>
+    
+</head>
+<body>
+    <div>
+        <div></div>
+        <div id = "login"  style="width: 60%; margin-left: 20%; margin-right: 20% ;margin-top: 100px;">
+            <h3 style="text-align: center;">Đăng nhập vào hệ thống</h3>
+            <% if (locals.errors) { %>
+                <% errors.forEach(function a(error){%>
+                <div class="alert alert-danger">Value of errors: <%= error %></div> 
+                <% }) %>
+            <% } %>
+            <form action="/index", method="POST" >
+                <div class="form-group">
+                    <label for="userName">Tên đăng nhập:</label>
+                    <input type="text" class="form-control" id="userNamelogin" placeholder="Enter user name" name="userName">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Mật khẩu:</label>
+                    <input type="password" class="form-control" id="passwordlogin" placeholder="Enter password" name="pass">
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Nhớ mật khẩu
+                    </label>
+                </div>
+                <button type="submit" id ="btnlogin" class="btn btn-primary">Login</button>
+            </form>
+            <p>Nếu bạn chưa có tài khoản. <a href="create">Tạo ngay</a> </p>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

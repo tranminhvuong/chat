@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chào mừng bạn đến với webchat</title>
+    <link rel="stylesheet" type ="text/css" href="layout.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <div></div>
+        <div id = "create" style="width: 60%;margin-left: 20%; margin-right: 20%;margin-top: 100px;">
+            <h3 style="text-align: center;">Tạo tài khoản mới</h3>
+            <% if (locals.errors) { %>
+                <% errors.forEach(function a(error){%>
+                <div class="alert alert-danger"> <%= error %></div> 
+                <% }) %>
+            <% } %>
+            <form action="/create", method="POST">
+                <div class="form-group">
+                    <label for="userName">Tên đăng nhập:</label>
+                    <input type="text" class="form-control" id="userNamecreate" placeholder="Enter user name" name="userName">
+                </div>
+                <div class="form-group">
+                        <label for="name">Tên hiển thị:</label>
+                        <input type="text" class="form-control" id="namecreate" placeholder="Enter name" name="name">
+                    </div>
+                <div class="form-group">
+                    <label for="pass">Mật khẩu:</label>
+                    <input type="password" class="form-control" id="passcreate" placeholder="Enter password" name="pass">
+                </div>
+                <button type="submit" id="btncreate" class="btn btn-primary">Create</button>
+            </form>
+            <p>Nếu bạn đã có tài khoản. <a href="index">Đăng nhập ngay</a></p>
+        </div>
+       
+        
+    </div>
+    
+</body>
+</html>
