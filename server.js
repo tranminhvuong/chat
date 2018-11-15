@@ -6,6 +6,9 @@ var bodyParser = require("body-parser");
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
+app.get("/view", function(req, res){
+    res.render("home");
+});
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
