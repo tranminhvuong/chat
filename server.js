@@ -57,7 +57,7 @@ io.on("connection", function(socket){
         if(ab.length ==5){
             arrayCall.push({idcall: ab[0], uss : a[1], id : socket.id});
         }
-        if(a.length ==6){
+        if(ab.length ==6){
             arrayCall.push({idcall: ab[0], uss : a[4], id : socket.id});
         }
     });
