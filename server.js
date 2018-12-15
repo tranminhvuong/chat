@@ -29,6 +29,8 @@ var low = require("lowdb");
 var FileSync = require("lowdb/adapters/FileSync");
 var adapter = new FileSync("db.json");
 var arrayOnline = [];
+var arrayOnline2 = [];
+var arrayCall = [];
 db =low(adapter);
 db.defaults({users: []}).write();
 db.defaults({msm: []}).write();
@@ -40,18 +42,36 @@ server.listen(4000);
 
 io.on("connection", function(socket){
     var tmp;
+	console.log(socket.id);
    socket.on("myname", function(data){
        socket.id_user  = data||"";
        tmp =socket.id_user;
-       if(socket.id_user) arrayOnline.push(socket.id_user);
+       if(socket.id_user) {
+           arrayOnline.push(socket.id_user);
+           arrayOnline2.push({ten: tmp, id : socket.id});
+       }
        io.sockets.emit("server-send-danhsach-users",{us : db.get("users").value() , arr: arrayOnline});
     });  
+    socket.on("myname1", data =>{
+        var ab = data.split(",");
+        if(ab.length ==5){
+            arrayCall.push({idcall: ab[0], uss : a[1]}, id : socket.id);
+        };
+        if(a.length ==6){
+            arrayCall.push({idcall: ab[0], uss : a[4]}, id : socket.id);
+        };
+    });
    socket.on("disconnect", function(){
        arrayOnline.forEach(i => {
            if(i === tmp){
             arrayOnline.splice(tmp,1); 
-           }
+           };
        });
+       arrayOnline2.forEach(i => {
+        if(i.ten === tmp){
+         arrayOnline2.splice(i,1); 
+        };
+    });
        socket.broadcast.emit("server-send-danhsach-users",{us : db.get("users").value() , arr: arrayOnline});
        
    });
@@ -60,7 +80,20 @@ io.on("connection", function(socket){
     socket.broadcast.emit("server-send-danhsach-users",{us : db.get("users").value() , arr: arrayOnline});
    });
   
-   
+    socket.on("nguoi-nhan-gui-id", data =>{
+        var x = data.split(",");
+        var tmpgoi;
+        var tmpnhan;
+        arrayCall.forEach(i=>{
+            if(i.uss == x[1])
+            tmpnhan = i.idcall;
+        });
+        arrayCall.forEach(i=>{
+            if(i.uss == x[0])
+            tmpgoi = i.id;
+        });
+        io.to(tmpgoi).emit('server-send-id-callee', tmpnhan);
+    });
     
     socket.on("mychat", function(data){
         console.log(data);
@@ -83,7 +116,15 @@ io.on("connection", function(socket){
         socket.phong = ar[0]+","+ar[1];
         io.sockets.in(socket.phong).emit("server-chat", ar[1]+":"+ ar[2]);
     });
-    
+    socket.on("co-nguoi-call", data =>{
+        var array = data.split(",");
+        var tmp;
+        arrayOnline2.forEach(i=>{
+            if(i.ten == array[2])
+                tmp = i.id;
+        });
+        io.to(tmp).emit("server-bao-co-nguoi-goi", data);
+    });
 });
 
 app.get("/" ,function(req,res){

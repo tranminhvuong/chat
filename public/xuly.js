@@ -58,6 +58,12 @@ socket.on("server-chat", function(data){
     }
 
 });
+socket.on("server-bao-co-nguoi-goi",data =>{
+    console.log(data);
+    data = "call," +data;
+    window.open("https://tranminhvuong.github.io/",data, true );
+});
+
 $(document).ready(function()
     {
         socket.emit("mychat", userNameofMe + ","+$("#useName").attr('data-name'));
@@ -77,6 +83,13 @@ $(document).ready(function()
         //  $("#txtMessage").focusout(function(){
         //     socket.emit("user-khong-go", );
         //  });
+        $("#caller").click(()=>{
+            var calllee = $("#useName").attr('data-name');
+            var ssss = userNameofMe+ ','+ nameofMe +',' +calllee + ','+ $("#useName").text();
+            socket.emit("co-nguoi-call", ssss);
+            window.open('https://tranminhvuong.github.io/',ssss, true);
+            
+        });
         $(document).on('mouseover', '.user', function(e) {
             $(this).css('background-color','aqua');
         });
