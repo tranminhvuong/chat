@@ -56,21 +56,21 @@ io.on("connection", function(socket){
         var ab = data.split(",");
         if(ab.length ==5){
             arrayCall.push({idcall: ab[0], uss : a[1]}, id : socket.id);
-        };
+        }
         if(a.length ==6){
             arrayCall.push({idcall: ab[0], uss : a[4]}, id : socket.id);
-        };
+        }
     });
    socket.on("disconnect", function(){
        arrayOnline.forEach(i => {
            if(i === tmp){
             arrayOnline.splice(tmp,1); 
-           };
+           }
        });
        arrayOnline2.forEach(i => {
         if(i.ten === tmp){
          arrayOnline2.splice(i,1); 
-        };
+        }
     });
        socket.broadcast.emit("server-send-danhsach-users",{us : db.get("users").value() , arr: arrayOnline});
        
