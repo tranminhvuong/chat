@@ -36,7 +36,7 @@ db.defaults({users: []}).write();
 db.defaults({msm: []}).write();
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(4000);
+server.listen(process.env.PORT || 4000);
 
 
 

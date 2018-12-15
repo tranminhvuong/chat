@@ -1,5 +1,5 @@
 
-var socket = io("http://localhost:4000");
+var socket = io("https://chat-do-an-mang.herokuapp.com");
 
 var str0 = document.cookie;
         var nameofcookies = document.cookie.substring(0,str0.indexOf("=") );
