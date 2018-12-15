@@ -55,10 +55,10 @@ io.on("connection", function(socket){
     socket.on("myname1", data =>{
         var ab = data.split(",");
         if(ab.length ==5){
-            arrayCall.push({idcall: ab[0], uss : a[1], id : socket.id});
+            arrayCall.push({idcall: ab[0], uss : ab[1], id : socket.id});
         }
         if(ab.length ==6){
-            arrayCall.push({idcall: ab[0], uss : a[4], id : socket.id});
+            arrayCall.push({idcall: ab[0], uss : ab[4], id : socket.id});
         }
     });
    socket.on("disconnect", function(){
