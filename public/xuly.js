@@ -48,7 +48,7 @@ socket.on("Server-say-ok", function(data){
 });
 socket.on("server-chat", function(data){
     var arr = data.split(":");
-    document.querySelector('1').play();
+    document.getElementById('1').play();
     if(arr[0]=== userNameofMe){
     $("#listMessenger").append("<div class='me'><p style='color:white; margin-bottom:0.5rem;'>"+arr[1]+"</p></div>");}
     else{
