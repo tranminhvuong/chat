@@ -37,7 +37,6 @@ socket.on("server-send-danhsach-users", function(data){
     });
 });
 socket.on("Server-say-ok", function(data){
-    console.log(data);
     $("#listMessenger").html("");
    
         if(data.sender === userNameofMe){
@@ -48,9 +47,7 @@ socket.on("Server-say-ok", function(data){
     
 });
 socket.on("server-chat", function(data){
-    console.log(data);
     var arr = data.split(":");
-    console.log(arr[1]);
     if(arr[0]=== userNameofMe){
     $("#listMessenger").append("<div class='me'><p style='color:white; margin-bottom:0.5rem;'>"+arr[1]+"</p></div>");}
     else{
@@ -73,9 +70,21 @@ $(document).ready(function()
       
         $("#_id").append("<u>" + nameofMe+"</u>")
         $("#btnSend").click(function(){
-            if($("#txtMessage").val().trim())
-           
-           socket.emit("user-send-message", $("#useName").attr('data-name')+":"+userNameofMe+": "+ $("#txtMessage").val().trim());
+            var  a = $("#txtMessage").val().trim();
+            if(a){
+            socket.emit("user-send-message", $("#useName").attr('data-name')+":"+userNameofMe+": "+ a);
+            document.getElementById("txtMessage").value = '';
+            }
+        });
+        $("#txtMessage").keypress(()=>{
+            if (event.keyCode == 13) {
+                var  a = $("#txtMessage").val().trim();
+                if(a){
+                    document.getElementById("txtMessage").value = '';
+                    socket.emit("user-send-message", $("#useName").attr('data-name')+":"+userNameofMe+": "+ a);
+                
+                }
+            }
         });
         // $("#txtMessage").focusin(function(){
         //     socket.emit("user-dang-go", );
