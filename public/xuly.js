@@ -48,10 +48,15 @@ socket.on("Server-say-ok", function(data){
 });
 socket.on("server-chat", function(data){
     var arr = data.split(":");
-    document.getElementById('1').play();
+    (function($){
+        song    = new Audio();
+        song.type= 'audio/mpeg';
+        song.src='nhac.mp3';
+    })(jQuery);
     if(arr[0]=== userNameofMe){
     $("#listMessenger").append("<div class='me'><p style='color:white; margin-bottom:0.5rem;'>"+arr[1]+"</p></div>");}
     else{
+        song.play();
         $("#listMessenger").append("<div class='you'><p style='color:white;margin-bottom:0.5rem; '>"+arr[1]+"</p></div>");
     }
 
